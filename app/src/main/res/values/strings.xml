@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Productivity Timer</string>
+    <string name="app_name">Stopwatch with Productivity Timer</string>
+    <string name="start">Start</string>
+    <string name="reset">Reset</string>
 </resources>
