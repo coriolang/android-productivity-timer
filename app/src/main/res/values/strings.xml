@@ -2,4 +2,5 @@
     <string name="app_name">Stopwatch with Productivity Timer</string>
     <string name="start">Start</string>
     <string name="reset">Reset</string>
+    <string name="zero_zero">00:00</string>
 </resources>
