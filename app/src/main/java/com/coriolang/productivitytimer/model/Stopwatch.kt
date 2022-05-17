@@ -8,6 +8,8 @@ class Stopwatch(
 
     private var minutes = 0
     private var seconds = 0
+    val totalSeconds: Int
+        get() = minutes * 60 + seconds
 
     suspend fun increment() {
         withContext(defaultDispatcher) {
@@ -18,7 +20,7 @@ class Stopwatch(
                 minutes++
             }
 
-            delay(1000)
+            delay(1000L)
         }
     }
     

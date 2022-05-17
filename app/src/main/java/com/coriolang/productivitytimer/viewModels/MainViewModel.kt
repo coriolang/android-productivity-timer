@@ -11,8 +11,8 @@ class MainViewModel : ViewModel() {
 
     private val stopwatch = Stopwatch()
 
-    private val _stopwatchString = MutableLiveData(stopwatch.toString())
-    val stopwatchString: LiveData<String> = _stopwatchString
+    private val _totalSeconds = MutableLiveData(stopwatch.totalSeconds)
+    val totalSeconds: LiveData<Int> = _totalSeconds
 
     private var stopwatchJob: Job? = null
 
@@ -24,7 +24,7 @@ class MainViewModel : ViewModel() {
         stopwatchJob = viewModelScope.launch {
             while (isActive) {
                 stopwatch.increment()
-                _stopwatchString.value = stopwatch.toString()
+                _totalSeconds.value = stopwatch.totalSeconds
             }
         }
     }
@@ -36,6 +36,8 @@ class MainViewModel : ViewModel() {
 
         stopwatchJob!!.cancel()
         stopwatch.reset()
-        _stopwatchString.value = stopwatch.toString()
+        _totalSeconds.value = stopwatch.totalSeconds
     }
+
+    fun getStopwatchString() = stopwatch.toString()
 }
