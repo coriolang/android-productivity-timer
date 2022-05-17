@@ -11,6 +11,11 @@ class Stopwatch(
     val totalSeconds: Int
         get() = minutes * 60 + seconds
 
+    private var _upperLimit = -1
+    var upperLimit: Int
+        get() = _upperLimit
+        set(value) { _upperLimit = value }
+
     suspend fun increment() {
         withContext(defaultDispatcher) {
             seconds++

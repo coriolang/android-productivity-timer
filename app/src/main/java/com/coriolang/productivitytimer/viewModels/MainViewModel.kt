@@ -40,4 +40,15 @@ class MainViewModel : ViewModel() {
     }
 
     fun getStopwatchString() = stopwatch.toString()
+
+    fun setUpperLimit(upperLimit: String) {
+        if (upperLimit == "") {
+            stopwatch.upperLimit = -1
+        } else {
+            stopwatch.upperLimit = upperLimit.toInt()
+        }
+    }
+
+    fun checkUpperLimit() =
+        stopwatch.upperLimit != -1 && stopwatch.totalSeconds == stopwatch.upperLimit
 }
